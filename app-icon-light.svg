@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="BackofficeAssistent Icon">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <!-- Document body -->
+  <rect x="128" y="96" width="224" height="288" rx="18" fill="url(#blueGrad)" opacity="0.9"/>
+  <rect x="140" y="108" width="200" height="264" rx="14" fill="white" opacity="0.15"/>
+  <!-- Folded corner -->
+  <path d="M296 96 L352 152 L296 152 Z" fill="url(#purpleGrad)" opacity="0.85"/>
+  <!-- Text lines on document -->
+  <rect x="160" y="196" width="120" height="10" rx="5" fill="white" opacity="0.7"/>
+  <rect x="160" y="220" width="152" height="10" rx="5" fill="white" opacity="0.5"/>
+  <rect x="160" y="244" width="96" height="10" rx="5" fill="white" opacity="0.4"/>
+  <!-- AI checkmark circle -->
+  <circle cx="344" cy="360" r="72" fill="url(#purpleGrad)"/>
+  <circle cx="344" cy="360" r="60" fill="#22c55e"/>
+  <path d="M318 360 l18 18 l36 -36" stroke="white" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

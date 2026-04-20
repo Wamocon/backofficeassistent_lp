@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BackofficeAssistent – AI-Powered Back-Office Assistant for Businesses</title>
+  <meta name="description" content="BackofficeAssistent automates your back-office tasks with AI – document analysis, report generation and task management on one dashboard.">
+  <meta name="keywords" content="back office assistant, ai document analysis, backoffice automation, office assistant ai, document processing software, report generation ai">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="WAMOCON GmbH">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="icon" href="app-icon-light.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://backofficeassistent.vercel.app/en">
+
+  <meta property="og:title" content="BackofficeAssistent – Your AI Assistant for the Back Office">
+  <meta property="og:description" content="AI-powered, GDPR-compliant, ready to use: automate document analysis, reports and office workflows.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="BackofficeAssistent">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BackofficeAssistent – AI-Powered Back-Office Assistant">
+  <meta name="twitter:description" content="Automate back-office tasks with AI: document analysis, report generation and more on one dashboard.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BackofficeAssistent",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered back-office assistant for businesses. Automates document analysis, report generation and office workflows.",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Free starter plan available"},
+    "author": {"@type": "Organization", "name": "WAMOCON GmbH"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is BackofficeAssistent?", "acceptedAnswer": {"@type": "Answer", "text": "An AI-powered assistant for back-office tasks such as document analysis and report generation."}},
+      {"@type": "Question", "name": "Is it free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, a free starter plan is available."}},
+      {"@type": "Question", "name": "How secure is my data?", "acceptedAnswer": {"@type": "Answer", "text": "GDPR-compliant, hosted on Vercel and Supabase with state-of-the-art security standards."}},
+      {"@type": "Question", "name": "Which document types are supported?", "acceptedAnswer": {"@type": "Answer", "text": "PDFs and Word documents are fully supported."}}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    :root {
+      --color-bg: #f5f5f7;
+      --color-bg-alt: #eeeef0;
+      --color-surface: #ffffff;
+      --color-border: rgba(0,0,0,.08);
+      --color-border-hover: rgba(0,0,0,.14);
+      --color-border-accent: rgba(37,99,235,.18);
+      --color-accent: #2563eb;
+      --color-accent-dim: #1d4ed8;
+      --color-accent-soft: rgba(37,99,235,.06);
+      --color-text-main: #111113;
+      --color-muted: #555558;
+      --color-faint: #8e8e93;
+      --font-sans: 'Inter', system-ui, sans-serif;
+    }
+    body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text-main); }
+  </style>
+</head>
+
+<body class="overflow-x-hidden antialiased leading-relaxed">
+  <div class="gradient-orbs" aria-hidden="true">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+  </div>
+
+  <div class="fixed top-0 left-0 right-0 z-[60] overflow-hidden" style="height:48px;background:#0a0a0c;border-bottom:1px solid rgba(37,99,235,.25);">
+    <div style="display:flex;align-items:center;height:100%;white-space:nowrap;animation:ticker-scroll 18s linear infinite;">
+      <span class="ticker-item">BACKOFFICEASSISTENT &mdash; AI-powered. GDPR-compliant. Ready to use.</span>
+      <span class="ticker-item">BACKOFFICEASSISTENT &mdash; AI-powered. GDPR-compliant. Ready to use.</span>
+      <span class="ticker-item">BACKOFFICEASSISTENT &mdash; AI-powered. GDPR-compliant. Ready to use.</span>
+      <span class="ticker-item">BACKOFFICEASSISTENT &mdash; AI-powered. GDPR-compliant. Ready to use.</span>
+    </div>
+  </div>
+
+  <nav class="fixed top-[48px] left-0 right-0 z-50 h-16 flex items-center transition-all duration-400" id="nav">
+    <div class="w-full max-w-[1100px] mx-auto px-5 md:px-10 flex items-center justify-between">
+      <a href="#" class="hover:opacity-70 transition-opacity flex items-center gap-2" style="text-decoration:none;">
+        <img src="app-icon-light.svg" alt="BackofficeAssistent icon" style="width:28px;height:28px;">
+        <span style="font-size:1.5rem;font-weight:900;letter-spacing:-0.5px;color:#2563eb;">BackofficeAssistent</span>
+      </a>
+      <div class="hidden md:flex items-center gap-4">
+        <div class="nav-links-pill">
+          <a href="#problem" class="nav-link" data-nav-section="problem">Problem</a>
+          <a href="#warum" class="nav-link" data-nav-section="warum">Solution</a>
+          <a href="#funktionen" class="nav-link" data-nav-section="funktionen">Features</a>
+          <a href="#process" class="nav-link" data-nav-section="process">Process</a>
+          <a href="#ablauf" class="nav-link" data-nav-section="ablauf">How it works</a>
+          <a href="#faq" class="nav-link" data-nav-section="faq">FAQ</a>
+        </div>
+        <a href="https://backofficeassistent.vercel.app" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;background:#2563eb;color:#fff;font-size:.8rem;font-weight:700;border-radius:999px;text-decoration:none;">Open app</a>
+        <div class="flex items-center gap-2 text-sm font-semibold" style="color:var(--color-muted);background:rgba(255,255,255,0.05);padding:6px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);">
+          <a href="index.html" class="hover:text-white transition-colors" style="text-decoration:none;">DE</a>
+          <span style="opacity:0.3">|</span>
+          <a href="index.en.html" style="color:#2563eb;text-decoration:none;">EN</a>
+        </div>
+      </div>
+      <button class="nav-hamburger md:hidden" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div id="mobileMenu" aria-hidden="true">
+    <button style="position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;" onclick="closeMobileMenu()">&times;</button>
+    <div class="mm-brand">BackofficeAssistent</div>
+    <div class="mm-grid">
+      <a href="#problem" class="mm-link" onclick="closeMobileMenu()">Problem</a>
+      <a href="#warum" class="mm-link" onclick="closeMobileMenu()">Solution</a>
+      <a href="#funktionen" class="mm-link" onclick="closeMobileMenu()">Features</a>
+      <a href="#process" class="mm-link" onclick="closeMobileMenu()">Process</a>
+      <a href="#ablauf" class="mm-link" onclick="closeMobileMenu()">How it works</a>
+      <a href="#faq" class="mm-link" onclick="closeMobileMenu()">FAQ</a>
+      <a href="#final-cta" class="mm-link" onclick="closeMobileMenu()">Start</a>
+    </div>
+    <div style="margin-top:2rem;display:flex;justify-content:center;gap:1.5rem;font-size:1.2rem;font-weight:700;">
+      <a href="index.html" style="color:var(--color-muted);text-decoration:none;">DE</a>
+      <span style="color:var(--color-border);">|</span>
+      <a href="index.en.html" style="color:#2563eb;text-decoration:none;">EN</a>
+    </div>
+  </div>
+
+  <section class="relative flex items-center justify-center overflow-hidden pt-[160px] pb-[130px]" id="hero">
+    <canvas id="heroParticles" class="absolute inset-0 z-[1]"></canvas>
+    <div class="absolute inset-0 z-0" style="background:radial-gradient(ellipse 70% 55% at 50% 40%,rgba(37,99,235,.09)0%,transparent 65%),radial-gradient(ellipse 50% 60% at 20% 80%,rgba(37,99,235,.05)0%,transparent 50%),radial-gradient(ellipse 45% 50% at 80% 25%,rgba(124,58,237,.07)0%,transparent 50%);"></div>
+    <div class="absolute inset-0 z-0 opacity-[.06]" style="background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 60% 55% at 50% 50%,black 0%,transparent 70%);"></div>
+
+    <div class="relative z-10 text-center max-w-[960px] px-5">
+      <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7" style="background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.35);">
+        <img src="app-icon-light.svg" alt="BackofficeAssistent" style="width:16px;height:16px;">
+        <span style="font-size:.8rem;font-weight:700;color:#3b82f6;letter-spacing:.06em;text-transform:uppercase;">AI-powered. GDPR-compliant. Ready to use.</span>
+      </div>
+
+      <h1 class="reveal text-3xl md:text-7xl lg:text-8xl font-bold leading-[1.08] tracking-tight mb-6">
+        Your Back Office.<br><span class="gradient-text">With AI. With Structure.</span>
+      </h1>
+      <p class="reveal text-lg md:text-xl max-w-[680px] mx-auto leading-relaxed" style="color:var(--color-muted);">
+        BackofficeAssistent helps businesses automate back-office tasks – from AI-powered document analysis to intelligent report generation.
+      </p>
+
+      <div class="reveal mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://backofficeassistent.vercel.app" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 30px;background:#2563eb;color:#fff;font-size:.95rem;font-weight:700;border-radius:12px;text-decoration:none;transition:all .25s ease;box-shadow:0 4px 24px rgba(37,99,235,.3);">Get started for free</a>
+      </div>
+
+      <p class="reveal mt-5 text-sm" style="color:#8e8e93;">Free starter plan. No credit card required. GDPR-compliant.</p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-[120px] z-20" style="background:linear-gradient(to bottom, transparent, #0f1117);"></div>
+  </section>
+
+  <section class="relative section-dark" id="problem" style="padding:6.5rem 0 5rem;margin-top:-2px;">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <h2 class="reveal text-4xl md:text-6xl font-black leading-[1.05] tracking-tight mb-6" style="color:#f0f0f2;">
+        Office work costs time.<br><span style="color:#2563eb;">Valuable time.</span>
+      </h2>
+      <p class="reveal text-lg max-w-[620px] leading-relaxed mb-16" style="color:#9a9aaa;">These three figures show why AI automation in the back office has become essential: how much time manual tasks consume, how large the efficiency potential is, and how many document types can be processed automatically.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(37,99,235,.07);border:1px solid rgba(37,99,235,.25);">
+          <span class="block stat-value font-black leading-none mb-3 tabular-nums" style="color:#2563eb;" data-target="70" data-suffix="%">0</span>
+          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">time saved on document tasks</span>
+          <span class="block text-xs" style="color:#7a7a88;">through AI automation compared to manual processing</span>
+        </div>
+        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(37,99,235,.07);border:1px solid rgba(37,99,235,.25);">
+          <span class="block stat-value font-black leading-none mb-3 tabular-nums" style="color:#2563eb;" data-target="3" data-suffix="h+">0</span>
+          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">daily on manual document processing</span>
+          <span class="block text-xs" style="color:#7a7a88;">time employees in SMEs spend daily on repetitive office tasks</span>
+        </div>
+        <div class="reveal text-center p-8 rounded-2xl" style="background:rgba(37,99,235,.07);border:1px solid rgba(37,99,235,.25);">
+          <span class="block text-xs font-semibold mb-2 uppercase tracking-[0.12em]" style="color:#3b82f6;">over</span>
+          <span class="block stat-value font-black leading-none mb-1 tabular-nums" style="color:#2563eb;" data-target="100" data-suffix="+">0</span>
+          <span class="block text-sm font-semibold mb-2" style="color:#d3d3da;">document types</span>
+          <span class="block text-lg font-semibold mb-1" style="color:#f0f0f2;">fully supported</span>
+          <span class="block text-xs" style="color:#7a7a88;">PDFs, Word documents and more – processed seamlessly</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 md:py-32 section-dark" id="warum" style="background:#050508;">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-14">
+        <h2 class="reveal text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-5" style="color:#f0f0f2;">Why BackofficeAssistent</h2>
+        <p class="reveal text-lg max-w-[650px] mx-auto leading-relaxed" style="color:#9999a1;">Five clear advantages for businesses that want to make their back-office processes more efficient and smarter.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">AI-powered document analysis</h3>
+          <p style="color:#9a9aaa;">Automatically analyse PDFs and documents, extract key data and present results in a structured way.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Instantly productive – no training needed</h3>
+          <p style="color:#9a9aaa;">Register, log in, and get started right away. No lengthy onboarding, no complex configuration.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">Reports at the click of a button</h3>
+          <p style="color:#9a9aaa;">Generate professional Word documents and PDFs automatically – saves hours of manual work.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl card-hover" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);">
+          <h3 class="text-xl font-bold mb-3" style="color:#f0f0f2;">GDPR-compliant and secure</h3>
+          <p style="color:#9a9aaa;">Hosted on Vercel and Supabase with modern security standards. Your data stays protected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="funktionen" class="py-24 section-alt">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-14">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4">Core features that reduce workload</h2>
+        <p class="reveal text-lg max-w-[680px] mx-auto" style="color:var(--color-muted);">All key capabilities of BackofficeAssistent in one clear, practical interface.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">AI Document Analysis</h3>
+          <p style="color:var(--color-muted);">Upload PDFs and documents – AI automatically extracts key data, summarises content and presents results in a structured format.</p>
+        </article>
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">Smart Report Generation</h3>
+          <p style="color:var(--color-muted);">Create professional reports and Word documents at the click of a button. Customisable templates, instantly exportable.</p>
+        </article>
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">Dashboard & Task Overview</h3>
+          <p style="color:var(--color-muted);">All projects, documents and tasks on one dashboard at a glance. Status, progress and priorities immediately visible.</p>
+        </article>
+        <article class="reveal p-7 rounded-2xl bg-white border card-hover accent-hover">
+          <h3 class="text-xl font-bold mb-3">Multilingual & Export</h3>
+          <p style="color:var(--color-muted);">Seamlessly usable in German and English. Export results as PDF or Word and integrate them directly into existing workflows.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 section-dark" id="process" style="background:#090a0e;">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-10">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4" style="color:#f0f0f2;">From Document to Result</h2>
+        <p class="reveal text-lg max-w-[760px] mx-auto" style="color:#a2a2ab;">BackofficeAssistent turns manual routine tasks into a fast, automated workflow. This process shows the real journey from upload to finished report.</p>
+      </div>
+      <div class="reveal process-shell" id="processFlow">
+        <div class="process-track">
+          <div class="process-track__bar" id="processFlowBar"></div>
+          <div class="process-track__dot" id="processFlowDot"></div>
+        </div>
+        <div class="process-grid">
+          <article class="process-step process-step--active" tabindex="0">
+            <div class="process-step__index">01</div>
+            <h3 class="process-step__title">Sign up & start</h3>
+            <p class="process-step__text">Register for free and get started immediately. No credit card, no lengthy setup.</p>
+            <p class="process-step__hint">Click to expand</p>
+            <div class="process-step__more">Your account is set up in seconds – immediately ready for your day-to-day back-office work.</div>
+          </article>
+          <article class="process-step" tabindex="0">
+            <div class="process-step__index">02</div>
+            <h3 class="process-step__title">Upload documents</h3>
+            <p class="process-step__text">Upload PDFs and files – AI analyses content and extracts relevant data automatically.</p>
+            <p class="process-step__hint">Click to expand</p>
+            <div class="process-step__more">PDFs, Word documents and other common formats are supported. The AI recognises structure and content independently.</div>
+          </article>
+          <article class="process-step" tabindex="0">
+            <div class="process-step__index">03</div>
+            <h3 class="process-step__title">Generate reports</h3>
+            <p class="process-step__text">Generate professional reports from the analysed data – customisable and instantly exportable.</p>
+            <p class="process-step__hint">Click to expand</p>
+            <div class="process-step__more">Choose from templates, adjust content, and export as PDF or Word document.</div>
+          </article>
+          <article class="process-step" tabindex="0">
+            <div class="process-step__index">04</div>
+            <h3 class="process-step__title">Save time</h3>
+            <p class="process-step__text">Repetitive tasks automated – more capacity for strategic and value-adding activities.</p>
+            <p class="process-step__hint">Click to expand</p>
+            <div class="process-step__more">Result: Less manual work, more efficiency and a clear overview of all back-office processes.</div>
+          </article>
+        </div>
+        <p class="process-target"><strong>Outcome:</strong> Less routine work, more efficiency and a clear overview of all back-office processes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 section-dark" style="background:#0f1117;" id="ablauf">
+    <div class="max-w-[1000px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-12">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4" style="color:#f0f0f2;">How it works in 3 steps</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="reveal p-7 rounded-2xl" style="background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);">
+          <span class="text-sm font-bold uppercase tracking-wider" style="color:#3b82f6;">Step 1</span>
+          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Register & log in</h3>
+          <p style="color:#9a9aaa;">Create a free account and access the dashboard immediately.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl" style="background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);">
+          <span class="text-sm font-bold uppercase tracking-wider" style="color:#3b82f6;">Step 2</span>
+          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Process documents</h3>
+          <p style="color:#9a9aaa;">Upload PDFs, AI analyses automatically, data is structured and prepared.</p>
+        </div>
+        <div class="reveal p-7 rounded-2xl" style="background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.25);">
+          <span class="text-sm font-bold uppercase tracking-wider" style="color:#3b82f6;">Step 3</span>
+          <h3 class="text-xl font-bold mt-2 mb-2" style="color:#f0f0f2;">Use the results</h3>
+          <p style="color:#9a9aaa;">Generate reports, export them and integrate directly into existing workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24" id="faq">
+    <div class="max-w-[900px] mx-auto px-5 md:px-10">
+      <div class="text-center mb-10">
+        <h2 class="reveal text-3xl md:text-5xl font-bold tracking-tight mb-4">Frequently asked questions</h2>
+      </div>
+      <div id="faqList" class="rounded-2xl bg-white border overflow-hidden">
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+            <span class="font-semibold">What is BackofficeAssistent?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">BackofficeAssistent is an AI-powered assistant for back-office tasks such as document analysis, data extraction and report generation – all on one dashboard.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+            <span class="font-semibold">Is it free to use?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">Yes, a free starter plan is available. Pro plans with extended features are also offered.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+            <span class="font-semibold">How secure is my data?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">The platform is fully GDPR-compliant. Data is hosted on Vercel and Supabase with state-of-the-art security standards.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between">
+            <span class="font-semibold">Which document types are supported?</span>
+            <span class="faq-question__icon relative w-5 h-5"></span>
+          </button>
+          <div class="faq-answer px-6 pb-5" style="color:var(--color-muted);">PDFs and Word documents are fully supported. Additional formats are in development.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 section-dark" id="final-cta" style="background:#050508;">
+    <div class="max-w-[900px] mx-auto px-5 md:px-10 text-center">
+      <h2 class="reveal text-3xl md:text-5xl font-black leading-[1.1] mb-5" style="color:#f0f0f2;">Get started now – free and ready to use immediately.</h2>
+      <p class="reveal text-lg max-w-[620px] mx-auto mb-9" style="color:#9a9aaa;">AI-powered, GDPR-compliant and focused on what matters most.</p>
+      <div class="reveal flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://backofficeassistent.vercel.app" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;background:#2563eb;color:#fff;font-weight:700;border-radius:12px;text-decoration:none;">Get started for free</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#050508;color:#8e8e93;padding:32px 20px 40px;text-align:center;border-top:1px solid rgba(255,255,255,.08);">
+    <div class="flex items-center justify-center gap-2 mb-2">
+      <img src="app-icon-light.svg" alt="BackofficeAssistent" style="width:18px;height:18px;opacity:.85;">
+      <span style="font-weight:700;color:#f0f0f2;">BackofficeAssistent</span>
+    </div>
+    <p style="font-size:.9rem;">AI-powered back-office assistant for businesses.</p>
+    <div style="margin-top:12px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:.85rem;">
+      <a href="https://backofficeassistent.vercel.app" target="_blank" rel="noopener noreferrer" style="color:#93c5fd;text-decoration:none;">Open app</a>
+      <a href="impressum.html" style="color:#93c5fd;text-decoration:none;">Imprint</a>
+      <a href="agb.html" style="color:#93c5fd;text-decoration:none;">T&amp;C</a>
+      <a href="datenschutz.html" style="color:#93c5fd;text-decoration:none;">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <div class="cookie-banner__inner">
+      <h3 style="font-weight:700;font-size:1.05rem;margin-bottom:.45rem;">Cookie and storage notice</h3>
+      <p style="font-size:.92rem;line-height:1.6;color:#4d4d55;">BackofficeAssistent uses technically necessary cookies for authentication and session management. No advertising trackers are used.</p>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:1rem;flex-wrap:wrap;">
+        <button class="cookie-banner__btn cookie-banner__btn--reject" data-cookie-action="reject">Close</button>
+        <button class="cookie-banner__btn cookie-banner__btn--accept" data-cookie-action="accept">Understood</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
